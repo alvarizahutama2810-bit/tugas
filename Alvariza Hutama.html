@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil Siswa - Alvariza Hutama</title>
+  <!-- Google Fonts: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 15px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 920px;
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .header-title {
+      text-align: center;
+      color: #0f382c;
+      margin-bottom: 35px;
+    }
+
+    .header-title h1 {
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .header-title p {
+      font-size: 14px;
+      color: #1e5142;
+      margin-top: 5px;
+      font-weight: 500;
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: 310px 1fr;
+      gap: 30px;
+    }
+
+    /* KARTU KIRI - PROFIL */
+    .left-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .avatar-wrapper {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #11998e, #38ef7d);
+      padding: 4px;
+      margin-bottom: 18px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .avatar-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      background-color: #fff;
+    }
+
+    .student-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 8px;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #e8f8f0;
+      color: #11998e;
+      font-size: 13px;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 22px;
+      font-weight: 600;
+    }
+
+    .student-meta {
+      width: 100%;
+      text-align: left;
+      border-top: 2px dashed #f0f0f0;
+      padding-top: 18px;
+    }
+
+    .meta-item {
+      margin-bottom: 10px;
+      font-size: 13px;
+      color: #666;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .meta-item strong {
+      color: #2c3e50;
+    }
+
+    /* KARTU KANAN - DETAIL */
+    .right-content {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .card-box {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    }
+
+    .card-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #11998e;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 2px solid #f4f6f8;
+      padding-bottom: 10px;
+    }
+
+    /* Tabel Informasi */
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .info-table td {
+      padding: 11px 0;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .info-table tr {
+      border-bottom: 1px solid #f8f9fa;
+    }
+
+    .info-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .info-table td.label {
+      font-weight: 600;
+      width: 38%;
+      color: #333;
+    }
+
+    .info-table td.separator {
+      width: 4%;
+      text-align: center;
+      color: #aaa;
+    }
+
+    .info-table td.value {
+      width: 58%;
+      color: #2c3e50;
+      font-weight: 500;
+    }
+
+    .bio-text {
+      font-size: 14px;
+      line-height: 1.8;
+      color: #4a5568;
+      background: #f8fafc;
+      padding: 16px 20px;
+      border-left: 4px solid #11998e;
+      border-radius: 6px;
+    }
+
+    @media (max-width: 768px) {
+      .profile-grid {
+        grid-template-columns: 1fr;
+      }
+      .container {
+        padding: 25px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header-title">
+      <h1>Student Profile Page</h1>
+      <p>A responsive student profile page design.</p>
+    </div>
+
+    <div class="profile-grid">
+      <!-- SISI KIRI -->
+      <div class="left-card">
+        <div class="avatar-wrapper">
+          <!-- Panggil file foto lokal (foto.jpg) atau dari link drive -->
+          <img 
+            src="foto.jpg" 
+            alt="Foto Alvariza Hutama"
+            onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/d/1WcYx5XEhmaGDpiTLcvgNaAjEKpXX1r6h';"
+          >
+        </div>
+        <h2 class="student-name">Alvariza Hutama</h2>
+        <span class="status-badge"><i class="fa-solid fa-circle-check"></i> Siswa Aktif</span>
+
+        <div class="student-meta">
+          <div class="meta-item"><span>Asal Sekolah</span> <strong>SMKN 64 JAKARTA</strong></div>
+          <div class="meta-item"><span>Kelas</span> <strong>10 RPL 2</strong></div>
+          <div class="meta-item"><span>Gol. Darah</span> <strong>B</strong></div>
+        </div>
+      </div>
+
+      <!-- SISI KANAN -->
+      <div class="right-content">
+        <!-- General Information -->
+        <div class="card-box">
+          <div class="card-title">
+            <i class="fa-regular fa-id-card"></i> General Information
+          </div>
+          <table class="info-table">
+            <tr>
+              <td class="label">Nama Lengkap</td>
+              <td class="separator">:</td>
+              <td class="value">Alvariza Hutama</td>
+            </tr>
+            <tr>
+              <td class="label">Tahun Lahir</td>
+              <td class="separator">:</td>
+              <td class="value">2010</td>
+            </tr>
+            <tr>
+              <td class="label">Umur</td>
+              <td class="separator">:</td>
+              <td class="value">16 Tahun</td>
+            </tr>
+            <tr>
+              <td class="label">Tinggi Badan</td>
+              <td class="separator">:</td>
+              <td class="value">182 cm</td>
+            </tr>
+            <tr>
+              <td class="label">Jenis Kelamin</td>
+              <td class="separator">:</td>
+              <td class="value">Laki-Laki</td>
+            </tr>
+            <tr>
+              <td class="label">Agama</td>
+              <td class="separator">:</td>
+              <td class="value">Islam</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Other Information -->
+        <div class="card-box">
+          <div class="card-title">
+            <i class="fa-regular fa-file-lines"></i> Other Information
+          </div>
+          <p class="bio-text">
+            Alvariza Hutama adalah Siswa jurusan Rekayasa Perangkat Lunak di SMKN 64 Jakarta yang berdedikasi, antusias terhadap teknologi baru, dan selalu bersemangat untuk mengeksplorasi dunia coding serta pengembangan aplikasi.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
